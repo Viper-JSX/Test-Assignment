@@ -10,7 +10,7 @@ function App(){
 
     useEffect(() =>{
         dispatch(getPositions());
-        dispatch(getUsers({}));
+        dispatch(getUsers({ offset: 0, count: 5 }));
     }, [])
 
     return(

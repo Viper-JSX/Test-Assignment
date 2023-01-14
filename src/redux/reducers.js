@@ -5,7 +5,7 @@ export function users(state = defaultState.users, action){
     switch(action.type){
         case GET_USERS: {
             console.log("Getting the users")
-            return state;
+            return { ...state, usersData: action.payload.usersData, users: [ ...state.users, action.payload.usersData.users ] };
         }
         case GET_POSITIONS: {
             return {...state, positions: action.payload.positions };
