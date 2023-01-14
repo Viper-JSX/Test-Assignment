@@ -1,4 +1,4 @@
-import { GET_POSITIONS, GET_USERS, SHOW_ERROR, SIGN_UP } from "./action_types";
+import { GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
 
 export function getUsers(payload){
@@ -30,7 +30,7 @@ export function signUp(payload){
         .catch((error) => console.log(error));
 
         if(!user){
-            dispatch({ type: SHOW_ERROR, payload: { errorTitle: "Cannot post the user", errorText: "Sign up not success"  } })
+            dispatch({ type: SHOW_MESSAGE, payload: { messageTitle: "Cannot post the user", messageText: "Sign up not success"  } })
             return;
         }
         
@@ -38,4 +38,10 @@ export function signUp(payload){
     }
 }
 
-//fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', { method: 'POST', body: formData, headers: { 'Token': token,  }, }) .then(function(response) { return response.json(); }) .then(function(data) { console.log(data); if(data.success) {  } else { // proccess server errors } }) .catch(function(error) {  });
+
+export function showMessage(payload){
+    return function(dispatch){
+        dispatch({ type: SHOW_MESSAGE, payload })
+        setTimeout(() => dispatch({ type: HIDE_MESSAGE }), 5000);
+    }
+}

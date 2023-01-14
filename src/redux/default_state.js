@@ -7,5 +7,5 @@ export const defaultState = {
         positions: []
     },
 
-    error: null
+    message: null
 }
