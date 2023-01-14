@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redux/thunks";
 
 import TopContent from "./components/Top_content/Top_Content";
-import { Button } from "@material-ui/core";
 
 
 function App(){
@@ -23,7 +22,6 @@ function App(){
     return(
         <div>
             <TopContent />
-            <Button />
         </div>
     );
 }
