@@ -1,3 +1,17 @@
+@use "./Header.scss";
+@use "./Main_page.scss";
+@use "./Top_content.scss";
+
+
+:root{
+    --backgroundColor: #F8F8F8; 
+    --disabledBackground: #B4B4B4;
+    --buttonHoverBackground: #FFE302;
+
+    --lightColor: #FFFFFF;
+    --transparentDarkColor: rgba(10, 10, 10, 0.5);
+}
+
 *{
     box-sizing: border-box;
 }
@@ -5,4 +19,13 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: var(--backgroundColor);
+}
+
+button{
+    
+}
+
+button:hover{
+    background-color: var(--buttonHoverBackground);
 }
