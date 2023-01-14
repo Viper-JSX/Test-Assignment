@@ -8,9 +8,8 @@ function App(){
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        dispatch(showMessage({messageText: "", messageTitle: ""}));
-        //dispatch(getPositions());
-        //dispatch(getUsers({ offset: 0, count: 5 }));
+        dispatch(getPositions());
+        dispatch(getUsers({ offset: 0, count: 5 }));
     }, [])
 
     const message = useSelector((state) => state.message);
