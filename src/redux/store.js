@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { defaultState } from "./default_state";
 
 import { users } from "./reducers";
 
