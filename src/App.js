@@ -15,7 +15,7 @@ function App(){
 
     useEffect(() =>{
         //dispatch(getPositions());
-        //dispatch(getUsers({ offset: 0, count: 5 }));
+        dispatch(getUsers({ offset: 0, count: 5 }));
     }, [])
 
 

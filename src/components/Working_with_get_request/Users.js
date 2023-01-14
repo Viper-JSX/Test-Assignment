@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
+import UserCard from "./User_card";
 
 function Users(){
     const users = useSelector((state) => state.users.users);
-    console.log(users);
 
     return(
         <div className="users">
-            Users
+            {
+                users.map((user) => <UserCard user={user} key={user.id} />)
+            }
         </div>  
     );
 }
