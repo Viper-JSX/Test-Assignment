@@ -1,3 +1,4 @@
+import "../../../public/files/images/sunset.jpeg";
 import TopContentText from "./Top_content_text";
 
 const title = "Test assignment for front-end developer";
@@ -12,6 +13,9 @@ function TopContent(){
     return(
         <div className="topContent">
             <TopContentText title={title} text={text} />
+                <div className="topContentUnderlyingImageContainer">
+                    <img className="topContentUnderlyingImage" src="../../../public/files/images/sunset.jpeg" />
+                </div>
         </div>
     );
 }
