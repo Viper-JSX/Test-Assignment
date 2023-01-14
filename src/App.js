@@ -7,6 +7,7 @@ import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redu
 
 import TopContent from "./components/Top_content/Top_Content";
 import Header from "./components/Header/Header";
+import MainPage from "./components/Main_page/Main_page";
 
 
 function App(){
@@ -23,7 +24,7 @@ function App(){
     return(
         <div className="app">
             <Header />
-            <TopContent />
+            <MainPage />
         </div>
     );
 }
