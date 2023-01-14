@@ -2,13 +2,14 @@ import "./css/main.scss";
 import "../public/files/images/Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getUsers } from "./redux/thunks";
+import { getPositions, getUsers } from "./redux/thunks";
 
 function App(){
     useSelector((state) => console.log(state))
     const dispatch = useDispatch();
 
     useEffect(() =>{
+        dispatch(getPositions());
         dispatch(getUsers({}));
     }, [])
 
