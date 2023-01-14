@@ -1,0 +1,24 @@
+.users{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.userCard{
+    background-color: var(--lightColor);
+    text-align: center;
+
+}
+
+.userCard > *{
+    margin: 20px;
+}
+
+.userPhoto{
+    border-radius: 50%;
+}
+
+.userInfo > *{
+    margin: 5px;
+    display: inline-block;
+}
