@@ -1,3 +1,7 @@
 export const defaultState = {
-    users: {}
+    users: {
+        users: [],
+        usersData: null,
+        positions: []
+    }
 }
