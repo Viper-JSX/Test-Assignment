@@ -12,7 +12,7 @@ function App(){
         dispatch(getPositions());
         dispatch(getUsers({ offset: 0, count: 5 }));
 
-        dispatch(signUp());
+        //dispatch(signUp({ signUpData: { name: "Yura", email: "yuramcpecs@gmail.com", phone: "+380955388485", position_id: "2" } }));
     }, [])
 
     return(

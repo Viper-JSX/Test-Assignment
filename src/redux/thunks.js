@@ -24,18 +24,17 @@ export function signUp(payload){
         const token = await axiosClient.get("/token")
         .then((response) => response.data.token);
 
-        
-        const user = axiosClient.post("/users", {}, { headers:{ 'Token': token } } )
+        console.log(payload.signUpData)
+        const user = axiosClient.post("/users", { ...payload.signUpData }, { headers:{ 'Token': token } } )
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
 
         if(!user){
             dispatch({ type: SHOW_ERROR, payload: { errorTitle: "Cannot post the user", errorText: "Sign up not success"  } })
-
             return;
         }
         
-        dispatch({ type: SIGN_UP, payload: { user } });
+        //dispatch({ type: SIGN_UP, payload: { user } });
     }
 }
 
