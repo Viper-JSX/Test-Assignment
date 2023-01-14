@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redux/thunks";
 
 import TopContent from "./components/Top_content/Top_Content";
+import Header from "./components/Header/Header";
 
 
 function App(){
@@ -21,6 +22,7 @@ function App(){
 
     return(
         <div>
+            <Header />
             <TopContent />
         </div>
     );
