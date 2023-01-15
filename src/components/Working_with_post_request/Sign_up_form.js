@@ -1,4 +1,4 @@
-import { Button, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
+import { Button, FormControl, FormControlLabel, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
 import { positions } from "@mui/system";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -9,6 +9,9 @@ function SignUpForm({ handleSignUp }){
     const { formState, register, handleSubmit } = useForm({
         mode: "onChange"
     });
+
+    console.log(positions)
+
     return(
         <form className="signUpForm" method="POST" onSubmit={ handleSubmit(handleSignUp)}>
             <Input 
@@ -48,16 +51,16 @@ function SignUpForm({ handleSignUp }){
             />
             <span>{ formState.errors.phone?.message }</span>
 
-            <RadioGroup { ...register("positions", { required: "Select the position" }) } >
+            <FormControl>
+                <FormLabel>Your position</FormLabel>
+                <RadioGroup { ...register("positions", { required: "Select the position" }) } >
                 {
                     positions.map((position) => 
-                        <>
-                            <Radio id={`${position.name}Radio`} placeholder={position.name} value={position.id} color="secondary" />
-                            <FormLabel htmlFor={`${position.name}Radio`}>{position.name}</FormLabel>
-                        </>
+                        <FormControlLabel value={position.id} label={position.name} control={<Radio />} />
                     )
                 }
-            </RadioGroup>
+                </RadioGroup>
+            </FormControl>
 
             <Input type="file" { ...register("photo", { required: "Upload a photo" }) } />
 
