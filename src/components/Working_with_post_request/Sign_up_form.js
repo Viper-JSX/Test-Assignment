@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
 
 function SignUpForm({ handleSignUp }){
-    const positions = [ { id: 1, name: "Ivan" }, { id: 2, name: "Ivan" }, { id: 3, name: "Ivan" } ] //useSelector((state) => state.users.positions);
+    const positions =  useSelector((state) => state.users.positions);
     const { formState, control, register, handleSubmit } = useForm({
         mode: "onChange",
         defaultValues: {
