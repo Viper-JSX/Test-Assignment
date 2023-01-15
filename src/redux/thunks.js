@@ -3,7 +3,7 @@ import { axiosClient } from "../api/axios/axios_client";
 
 export function getUsers(payload){
     return async function(dispatch){
-        const usersData = await axiosClient.get("/users", { params: { count: payload.count, offset: payload.offset } })
+        const usersData = await axiosClient.get(payload.url)
         .then((response) => response.data);
     
         dispatch({ type: GET_USERS, payload: { usersData } });
