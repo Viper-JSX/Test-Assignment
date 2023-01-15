@@ -25,7 +25,7 @@ export function signUp(payload){
         .then((response) => response.data.token);
 
         console.log(payload.signUpData)
-        const user = axiosClient.post("/users", { ...payload.signUpData }, { headers:{ 'Token': token } } )
+        const user = axiosClient.post("/users", { ...payload.signUpData, photo: undefined }, { headers:{ 'Token': token } } )
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
 

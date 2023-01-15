@@ -53,10 +53,10 @@ function SignUpForm({ handleSignUp }){
 
             <FormControl>
                 <FormLabel>Your position</FormLabel>
-                <RadioGroup { ...register("positions", { required: "Select the position" }) } >
+                <RadioGroup { ...register("position_id", { required: "Select the position" }) } >
                 {
                     positions.map((position) => 
-                        <FormControlLabel value={position.id} label={position.name} control={<Radio />} />
+                        <FormControlLabel value={position.id} label={position.name} control={<Radio />} key={`${position.name}Position}`} />
                     )
                 }
                 </RadioGroup>
