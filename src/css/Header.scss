@@ -3,5 +3,23 @@ header{
     background-color: var(--lightColor);
     position: fixed;
     top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1;
+}
+
+.appIcon, .headerButtons{
+    padding: 0.5rem;
+}
+
+header .goToSignUp{
+    margin-right: 0.5rem;
+}
+
+.goToSignUp, .goToShowMoreUsers{
+    width: 6rem !important;
+    height: 2rem !important;
+    border-radius: 5rem !important;
 }
