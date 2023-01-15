@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
 import Users from "./Users";
 
@@ -11,7 +11,7 @@ function WorkingWithGetRequest({ handleShowMoreUsers }){
             <Users />
             {
                 usersAreLoading ?
-                null
+                <CircularProgress color="secondary" />
                 :
                 <Button onClick={handleShowMoreUsers} variant="contained" >Show more</Button> 
             }
