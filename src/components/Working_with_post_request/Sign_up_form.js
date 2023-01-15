@@ -1,4 +1,4 @@
-import { Button, Input, Radio, RadioGroup } from "@mui/material";
+import { Button, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
 import { positions } from "@mui/system";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -50,7 +50,12 @@ function SignUpForm({ handleSignUp }){
 
             <RadioGroup { ...register("positions", { required: "Select the position" }) } >
                 {
-                    positions.map((position) => <Radio placeholder={position.name} value={position.id} color="secondary" />)
+                    positions.map((position) => 
+                        <>
+                            <Radio id={`${position.name}Radio`} placeholder={position.name} value={position.id} color="secondary" />
+                            <FormLabel htmlFor={`${position.name}Radio`}>{position.name}</FormLabel>
+                        </>
+                    )
                 }
             </RadioGroup>
 
