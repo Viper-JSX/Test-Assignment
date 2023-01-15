@@ -20,7 +20,6 @@ function App(){
 
 
     function handleSignUp(data){
-        //console.log(data);
         dispatch(signUp({ signUpData: data }));
     }
 

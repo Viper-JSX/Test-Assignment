@@ -1,13 +1,16 @@
 import { Button, FormControl, FormControlLabel, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
 import { positions } from "@mui/system";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
 
 function SignUpForm({ handleSignUp }){
-    const positions = useSelector((state) => state.users.positions);
-    const { formState, register, handleSubmit } = useForm({
-        mode: "onChange"
+    const positions = [ { id: 1, name: "Ivan" }, { id: 2, name: "Ivan" }, { id: 3, name: "Ivan" } ] //useSelector((state) => state.users.positions);
+    const { formState, control, register, handleSubmit } = useForm({
+        mode: "onChange",
+        defaultValues: {
+            position_id: 1
+        }
     });
 
     console.log(positions)
@@ -53,14 +56,24 @@ function SignUpForm({ handleSignUp }){
 
             <FormControl>
                 <FormLabel>Your position</FormLabel>
-                <RadioGroup { ...register("position_id", { required: "Select the position" }) } >
-                {
-                    positions.map((position) => 
-                        <FormControlLabel value={position.id} label={position.name} control={<Radio />} key={`${position.name}Position}`} />
-                    )
-                }
-                </RadioGroup>
+                
+
+                <Controller 
+                    control={control}
+                    name="position_id"
+                    rules={{ required: "Select the position" }}
+                    render={({ field }) =>
+                        <RadioGroup { ...field } >
+                        {
+                            positions.map((position) => 
+                                <FormControlLabel value={position.id} label={position.name} control={<Radio />} key={`position_${position.id}}`} />
+                            )
+                        }
+                        </RadioGroup>
+                    }
+                />
             </FormControl>
+            <span>{ formState.errors.position_id?.message }</span>
 
             <Input type="file" { ...register("photo", { required: "Upload a photo" }) } />
 
