@@ -3,7 +3,6 @@ import { axiosClient } from "../api/axios/axios_client";
 
 export function getUsers(payload){
     return async function(dispatch){
-        console.log("Got to thunk", payload)
         const usersData = await axiosClient.get(payload.url)
         .then((response) => response.data);
     
