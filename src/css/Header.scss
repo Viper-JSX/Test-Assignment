@@ -5,17 +5,26 @@ header{
     top: 0;
     left: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 1;
+}
+
+.headerItemsContainer{
+    width: 100%;
+    max-width: 1170px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .appIcon, .headerButtons{
     padding: 0.5rem;
 }
 
-header .goToSignUp{
-    margin-right: 0.5rem;
+header{
+    .goToSignUp{
+        margin-right: 0.5rem;
+    }
 }
 
 .goToSignUp, .goToShowMoreUsers{
