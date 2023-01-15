@@ -4,14 +4,13 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
 
-function SignUpForm(){
+function SignUpForm({ handleSignUp }){
     const positions = useSelector((state) => state.users.positions);
     const { formState, register, handleSubmit } = useForm({
         mode: "onChange"
     });
-
     return(
-        <form className="signUpForm" method="POST" onSubmit={(event) => { event.preventDefault(); console.log(formState.errors) }}>
+        <form className="signUpForm" method="POST" onSubmit={ handleSubmit(handleSignUp)}>
             <Input 
                 type="text" 
                 placeholder="Your name" 

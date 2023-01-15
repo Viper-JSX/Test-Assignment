@@ -19,12 +19,16 @@ function App(){
     }, [])
 
 
-
+    function handleSignUp(data){
+        console.log(data);
+    }
 
     return(
         <div className="app">
             <Header />
-            <MainPage />
+            <MainPage 
+                handleSignUp={handleSignUp}
+            />
         </div>
     );
 }
