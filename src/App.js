@@ -8,6 +8,7 @@ import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redu
 import TopContent from "./components/Top_content/Top_Content";
 import Header from "./components/Header/Header";
 import MainPage from "./components/Main_page/Main_page";
+import { usersPerRequest } from "./api/requests_config";
 
 
 function App(){
@@ -16,7 +17,7 @@ function App(){
     useSelector((state) => console.log(state))
     useEffect(() =>{
         dispatch(getPositions());
-        dispatch(getUsers({ url: "/users?page=1&count=5" }));
+        dispatch(getUsers({ url: `/users?page=1&count=${usersPerRequest}` }));
     }, [])
 
 

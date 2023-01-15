@@ -1,1 +1,1 @@
-export const usersPerRequest = 5;
+export const usersPerRequest = 6;
