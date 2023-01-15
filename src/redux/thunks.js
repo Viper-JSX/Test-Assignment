@@ -1,12 +1,14 @@
-import { GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP } from "./action_types";
+import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
 
 export function getUsers(payload){
     return async function(dispatch){
+        dispatch({ type: START_USERS_LOADING });
         const usersData = await axiosClient.get(payload.url)
         .then((response) => response.data);
     
         dispatch({ type: GET_USERS, payload: { usersData } });
+        dispatch({ type: END_USERS_LOADING });
     }
 }
 

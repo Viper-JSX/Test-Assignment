@@ -1,4 +1,4 @@
-import { GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP } from "./action_types";
+import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { defaultState } from "./default_state";
 
 export function users(state=defaultState.users, action){
@@ -8,6 +8,12 @@ export function users(state=defaultState.users, action){
         }
         case GET_POSITIONS: {
             return {...state, positions: action.payload.positions };
+        }
+        case START_USERS_LOADING:{
+            return { ...state, usersAreLoading: true };
+        }
+        case END_USERS_LOADING: {
+            return { ...state, usersAreLoading: false };
         }
         default:{
             return state;

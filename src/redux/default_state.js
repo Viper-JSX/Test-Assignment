@@ -4,7 +4,8 @@ export const defaultState = {
     users: {
         users: [],
         usersData: null,
-        positions: []
+        positions: [],
+        usersAreLoading: false
     },
 
     message: null
