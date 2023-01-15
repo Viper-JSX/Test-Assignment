@@ -11,11 +11,24 @@
 
 .userCard{
     background-color: var(--lightColor);
+}
+
+.userInfo{
+    width: 90%;
+    -webkit-line-clamp: 4
+}
+
+.userCard{ /*Do the same for user info*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 
-.userCard > *{
-    margin: 20px;
+.userCard{
+    >*{
+        margin: 20px;
+    }
 }
 
 .userPhoto{

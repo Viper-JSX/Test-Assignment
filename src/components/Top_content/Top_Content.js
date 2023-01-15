@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import "../../../public/files/images/sunset.jpeg";
 import TopContentText from "./Top_content_text";
 
@@ -13,6 +14,7 @@ function TopContent(){
     return(
         <div className="topContent">
             <TopContentText title={title} text={text} />
+            <Button className="goToSignUpButton" href="#" color="primary" variant="contained">Sign up</Button>
                 <div className="topContentUnderlyingImageContainer">
                     <img className="topContentUnderlyingImage" src="../../../public/files/images/sunset.jpeg" />
                 </div>
