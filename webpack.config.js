@@ -26,7 +26,7 @@ module.exports = {
                 options: {
                   name: '/public/files/images/[name].[ext]'
                 }
-            },
+            }
         ]
     },
 

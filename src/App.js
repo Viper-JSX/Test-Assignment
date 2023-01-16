@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redux/thunks";
 
-import TopContent from "./components/Top_content/Top_Content";
 import Header from "./components/Header/Header";
 import MainPage from "./components/Main_page/Main_page";
 import { usersPerRequest } from "./api/requests_config";
@@ -27,7 +26,6 @@ function App(){
     }
 
     function handleShowMoreUsers(){
-        console.log("more", usersData)
         dispatch(getUsers({ url: usersData.links.next_url }));
     }
 
