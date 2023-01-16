@@ -1,4 +1,7 @@
 @media  screen and (max-width: 328px) {
+    .users{
+        width: 280px !important;
+    }
     .messageWindow{
         right: 0;
     }
@@ -7,7 +10,7 @@
 @media screen and (max-width: 420px){
     .signUpFormTextField{
         width: 328px;
-        max-width: 94vw;
+        max-width: 90vw;
     }
 }
 
