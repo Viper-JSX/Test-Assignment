@@ -18,8 +18,8 @@ function SignUpForm({ handleSignUp }){
     });
 
     useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button
-    
 
+    
     function handleImageChange(event){
         if(event.target.files.length === 0){
             setError("photo", { type: "text", message: "Select the image" });
@@ -108,7 +108,7 @@ function SignUpForm({ handleSignUp }){
 
             <Button variant="contained" component="label">
                 Upload File
-                <input type="file" { ...register("photo", { required: "Upload a photo" }) } hidden accept="image/jpg, image/jpeg" onChange={handleImageChange}/>
+                <input type="file" { ...register("photo", { required: "Upload a photo" }) } hidden accept="image/jpg, image/jpeg" />
             </Button>
             <span>{ formState.errors.photo?.message }</span>
 

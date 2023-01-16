@@ -29,6 +29,7 @@ export function signUp(payload){
         formData.append("phone", payload.signUpData.phone);
         formData.append("position_id", payload.signUpData.position_id);
         formData.append("photo", payload.signUpData.photo[0]);
+        console.log(payload.signUpData.photo[0]);
 
         const token = await axiosClient.get("/token")
         .then((response) => response.data.token)
