@@ -1,0 +1,30 @@
+@media  screen and (max-width: 328px) {
+    .users, .signUpFormTextField{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .signUpFormTextField{
+        width: 328px;
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .users{
+        width: 328px;
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media  screen and (max-width: 1024px) {
+    .users{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media  screen and (min-width: 1024px) {
+    .users{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

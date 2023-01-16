@@ -51,33 +51,3 @@
     margin: 5px;
     display: inline-block;
 }
-
-
-@media  screen and (max-width: 328px) {
-    .users, .signUpFormTextFields{
-        width: 280px;
-    }
-    
-    .signUpFormInputs{
-
-    }
-}
-
-@media  screen and (max-width: 768px) {
-    .users{
-        width: 328px;
-        grid-template-columns: 1fr !important;
-    }
-}
-
-@media  screen and (max-width: 1024px) {
-    .users{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media  screen and (min-width: 1024px) {
-    .users{
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
