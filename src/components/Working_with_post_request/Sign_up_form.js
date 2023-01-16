@@ -17,19 +17,23 @@ function SignUpForm({ handleSignUp }){
         }
     });
 
-    useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button
+    useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button at initial render (No image selected)
 
-    
-    function handleImageChange(event){
-        if(event.target.files.length === 0){
-            setError("photo", { type: "text", message: "Select the image" });
-            return;
+    function checkPhotoSelected(images){
+        if(images.length === 0){
+            return "Select the image"
         }
+    }
 
-        clearErrors("photo"); //To remove photo error initially set in useEffect;
+    function checkPhotoSize(images){
+        if(images[0].size > 5000000){ //File greater that 5MB
+            setError("photo", { type: "text", message: "Image size must be less that 5MB" });
+        }
+    }
 
+    function checkPhotoDimentions(images){
         const reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
+        reader.readAsDataURL(images[0]);
         reader.onload = function(event){
             photo.src = event.target.result;
         }
@@ -39,10 +43,6 @@ function SignUpForm({ handleSignUp }){
             if(photo.width <= 70 || photo.height <= 70){
                 setError("photo", { type: "text", message: "Image dimentions must be at least 70x70" });
             }
-        }
-
-        if(event.target.files[0].size > 5000000){ //File greater that 5MB
-            setError("photo", { type: "text", message: "Image size must be less that 5MB" });
         }
     }
 
@@ -108,7 +108,16 @@ function SignUpForm({ handleSignUp }){
 
             <Button variant="contained" component="label">
                 Upload File
-                <input type="file" { ...register("photo", { required: "Upload a photo" }) } hidden accept="image/jpg, image/jpeg" />
+                <input type="file" { 
+                    ...register("photo", { 
+                        required: "Upload a photo",
+                        validate: {
+                            photoIsSelected: checkPhotoSelected,
+                            sizeIsSuitable: checkPhotoSize,
+                            photoDimentionsAreSuitable: checkPhotoDimentions
+                        }
+                    }) 
+                    } hidden accept="image/jpg, image/jpeg" />
             </Button>
             <span>{ formState.errors.photo?.message }</span>
 
