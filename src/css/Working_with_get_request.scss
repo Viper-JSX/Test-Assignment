@@ -1,4 +1,5 @@
 .workingWithGetRequest{
+    width: 100%;
     margin-top: 7rem;
     text-align: center;
     display: flex;
@@ -15,18 +16,19 @@
 }
 
 
-.userCard{ /*Do the same for user info*/
-    min-width: 320px;
+.userCard{
     background-color: var(--lightColor);
 }
 
 .userInfo{
     width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .userCard{
     >*{
-        margin: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -51,9 +53,20 @@
 }
 
 
+@media  screen and (max-width: 328px) {
+    .users, .signUpFormTextFields{
+        width: 280px;
+    }
+    
+    .signUpFormInputs{
+
+    }
+}
+
 @media  screen and (max-width: 768px) {
     .users{
-        grid-template-columns: repeat(1, 1fr);
+        width: 328px;
+        grid-template-columns: 1fr !important;
     }
 }
 
