@@ -7,7 +7,7 @@ import { emailValidationExpression, phoneValidationExpression } from "../../vari
 
 function SignUpForm({ handleSignUp }){
     const [ positions, user ] =  useSelector((state) => [ state.users.positions, state.user?.user ]);
-    const { formState, control, register, handleSubmit, setError } = useForm({
+    const { formState, control, register, handleSubmit, getValues, setError } = useForm({
         mode: "onChange",
         defaultValues: {
             position_id: 1,
@@ -18,6 +18,7 @@ function SignUpForm({ handleSignUp }){
     });
 
     useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button at initial render (No image selected)
+    console.log(getValues());
 
     function checkPhotoSelected(images){
         if(images.length === 0){
@@ -140,7 +141,14 @@ function SignUpForm({ handleSignUp }){
                     }) 
                     } hidden accept="image/jpg, image/jpeg" />
             </Button>
-            <span>{ formState.errors.photo?.message }</span>
+            <span>
+                {   
+                    ( getValues().photo && getValues().photo?.length > 0 ) ? //If photo is selected
+                    getValues().photo[0].name
+                    :
+                    formState.errors.photo?.message 
+                }
+            </span>
 
             {
                 ( Object.keys(formState.errors).length === 0 ) ? 
