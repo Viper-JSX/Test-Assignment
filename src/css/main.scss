@@ -36,3 +36,9 @@ button{
 button:hover{
     background-color: var(--buttonHoverBackground);
 }
+
+.roundedButton{
+    width: 6rem !important;
+    height: 2rem !important;
+    border-radius: 5rem !important;
+}

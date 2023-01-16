@@ -6,11 +6,11 @@ function UserCard({ user }){
         <Card className="userCard">
             <img className="userPhoto" src={user.photo} />
             <br />
-            <span className="userName">{user.name}</span>
+            <span className="userName" title={user.name}>{user.name}</span>
             <p className="userInfo">
-                <span className="userPosition">{user.position}</span>
+                <span className="userPosition" title={user.position}>{user.position}</span>
                 <br />
-                <span className="userEmail">{user.email}</span>
+                <span className="userEmail" title={user.email}>{user.email}</span>
                 <br />
                 <span className="userPhone">{user.phone}</span>
             </p>

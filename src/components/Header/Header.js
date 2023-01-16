@@ -7,8 +7,8 @@ function Header(){
             <div className="headerItemsContainer">
                 <img className="appIcon" src="../../../public/files/images/Logo.svg" />
                 <div className="headerButtons">
-                    <Button className="goToSignUp" href="#" variant="contained">Sing up</Button>
-                    <Button className="goToShowMoreUsers" href="#" variant="contained">Users</Button>
+                    <Button className="goToSignUp roundedButton" href="#" variant="contained">Sing up</Button>
+                    <Button className="goToShowMoreUsers roundedButton" href="#" variant="contained">Users</Button>
                 </div>
             </div>
         </header>
