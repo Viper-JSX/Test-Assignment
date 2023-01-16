@@ -9,6 +9,7 @@ import TopContent from "./components/Top_content/Top_Content";
 import Header from "./components/Header/Header";
 import MainPage from "./components/Main_page/Main_page";
 import { usersPerRequest } from "./api/requests_config";
+import MessageWindow from "./components/Message_window/Message_window";
 
 
 function App(){
@@ -18,6 +19,7 @@ function App(){
     useEffect(() =>{
         dispatch(getPositions());
         dispatch(getUsers({ url: `/users?page=1&count=${usersPerRequest}` }));
+        dispatch(showMessage({ messageTitle: "no", messageText: "Ya" }));
     }, [])
 
 
@@ -37,6 +39,7 @@ function App(){
                 handleSignUp={handleSignUp}
                 handleShowMoreUsers={handleShowMoreUsers}
             />
+            <MessageWindow />
         </div>
     );
 }

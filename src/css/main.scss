@@ -3,6 +3,7 @@
 @use "./Top_content.scss";
 @use "./Working_with_get_request.scss";
 @use "./Working_with_post_request.scss";
+@use "./Message_window.scss";
 @use "./media_queries.scss";
 
 :root{
@@ -12,6 +13,9 @@
 
     --lightColor: #FFFFFF;
     --transparentDarkColor: rgba(10, 10, 10, 0.5);
+
+    --primaryColor: #F4E041;
+    --secondaryColor: #00BDD3;
 }
 
 *{

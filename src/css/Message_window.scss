@@ -1,0 +1,19 @@
+.messageWindow{
+    width: 320px;
+    height: 160px;
+    background-color: var(--lightColor);
+    border: 0.5rem solid var(--secondaryColor);
+    border-bottom: none;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 1rem;
+    overflow-y: auto;
+    z-index: 3;
+}
+
+.messageTitle{
+    width: 100%;
+    border-bottom: 2px solid var(--primaryColor);
+    display: inline-block;
+}
