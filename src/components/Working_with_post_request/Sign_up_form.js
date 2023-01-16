@@ -7,7 +7,7 @@ import { emailValidationExpression, phoneValidationExpression } from "../../vari
 
 function SignUpForm({ handleSignUp }){
     const positions =  useSelector((state) => state.users.positions);
-    const { formState, control, register, handleSubmit, setError } = useForm({
+    const { formState, control, register, handleSubmit, setError, clearErrors } = useForm({
         mode: "onChange",
         defaultValues: {
             position_id: 1,
@@ -17,11 +17,16 @@ function SignUpForm({ handleSignUp }){
         }
     });
 
+    useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button
+    
+
     function handleImageChange(event){
         if(event.target.files.length === 0){
             setError("photo", { type: "text", message: "Select the image" });
             return;
         }
+
+        clearErrors("photo"); //To remove photo error initially set in useEffect;
 
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
@@ -30,10 +35,7 @@ function SignUpForm({ handleSignUp }){
         }
 
         const photo = new Image();
-
         photo.onload = function(){
-            console.log("done")
-            console.log(photo.width, photo.height);
             if(photo.width <= 70 || photo.height <= 70){
                 setError("photo", { type: "text", message: "Image dimentions must be at least 70x70" });
             }
@@ -110,7 +112,13 @@ function SignUpForm({ handleSignUp }){
             </Button>
             <span>{ formState.errors.photo?.message }</span>
 
-            <Button type="submit" variant="contained">Sing up</Button>
+            {
+                ( Object.keys(formState.errors).length === 0 ) ? 
+                <Button type="submit" variant="contained">Sing up</Button>
+                :
+                <Button disabled>Sing up</Button>
+            }
+
         </form>
     );
 }
