@@ -43,7 +43,8 @@ export function signUp(payload){
         });
         
         console.log(userId);
-
+        const user = axiosClient.get(`/users/${userId}`).
+        then((response) => console.log(response.data));
         //dispatch({ type: SIGN_UP, payload: { user } });
     }
 }
