@@ -23,11 +23,18 @@ export function getPositions(payload){
 
 export function signUp(payload){
     return async function(dispatch){
+        const formData = new FormData();
+        formData.append("name", payload.signUpData.name);
+        formData.append("email", payload.signUpData.email);
+        formData.append("phone", payload.signUpData.phone);
+        formData.append("position_id", payload.signUpData.position_id);
+        formData.append("photo", payload.signUpData.photo[0]);
+
         const token = await axiosClient.get("/token")
         .then((response) => response.data.token)
         .catch((err) => console.log(err));
 
-        const user = axiosClient.post("/users", { ...payload.signUpData, photo: undefined }, { headers:{ 'Token': token } } )
+        const user = axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
 

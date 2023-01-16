@@ -9,7 +9,10 @@ function SignUpForm({ handleSignUp }){
     const { formState, control, register, handleSubmit } = useForm({
         mode: "onChange",
         defaultValues: {
-            position_id: 1
+            position_id: 1,
+            email: "ivan@gmail.com",
+            name: "Ivann",
+            phone: "+380973242455"
         }
     });
 
@@ -75,7 +78,15 @@ function SignUpForm({ handleSignUp }){
             </FormControl>
             <span>{ formState.errors.position_id?.message }</span>
 
-            <Input type="file" { ...register("photo", { required: "Upload a photo" }) } />
+            {/*<Input type="file" { ...register("photo", { required: "Upload a photo" }) } />*/}
+
+            <Button variant="contained" component="label">
+                Upload File
+                <input type="file" { ...register("photo", { required: "Upload a photo" }) }
+                    hidden
+                    accept="image/jpg, image/jpeg"
+              />
+            </Button>
 
             <Button type="submit" variant="contained">Sing up</Button>
         </form>
