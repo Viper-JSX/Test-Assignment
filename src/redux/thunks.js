@@ -35,15 +35,15 @@ export function signUp(payload){
         .then((response) => response.data.token)
         .catch((err) => console.log(err));
 
-        const user = axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error));
-
-        if(!user){
+        const userId = await axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
+        .then((response) => response.data.user_id)
+        .catch((error) => {
             dispatch({ type: SHOW_MESSAGE, payload: { messageTitle: "Cannot post the user", messageText: "Sign up not success"  } })
             return;
-        }
+        });
         
+        console.log(userId);
+
         //dispatch({ type: SIGN_UP, payload: { user } });
     }
 }
