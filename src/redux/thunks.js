@@ -49,7 +49,7 @@ export function signUp(payload){
         .catch((err) => console.log("Cannot get the user"))
 
         dispatch(getUser({ user }));
-        //dispatch({ type: SIGN_UP, payload: { user } });
+        dispatch({ type: SIGN_UP, payload: { user } });
     }
 }
 
