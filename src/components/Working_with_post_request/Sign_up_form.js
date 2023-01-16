@@ -64,6 +64,7 @@ function SignUpForm({ handleSignUp }){
                 InputLabelProps={{
                     style: { color: 'red' },
                 }}
+                InputProps={{ className: "signUpFormTextField" }}
                 { ...register("name", 
                     { 
                         required: "Name is required", 
@@ -80,6 +81,7 @@ function SignUpForm({ handleSignUp }){
                 InputLabelProps={{
                     style: { color: 'red' },
                 }}
+                InputProps={{ className: "signUpFormTextField" }}
                 { ...register("email", 
                     {
                         required: "Email is required",
@@ -95,6 +97,7 @@ function SignUpForm({ handleSignUp }){
                 InputLabelProps={{
                     style: { color: 'red' },
                 }}
+                InputProps={{ className: "signUpFormTextField" }}
                 { ...register("phone", 
                     {
                         required: "Email is required",
