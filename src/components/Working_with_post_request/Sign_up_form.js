@@ -144,7 +144,7 @@ function SignUpForm({ handleSignUp }){
 
             {
                 ( Object.keys(formState.errors).length === 0 ) ? 
-                <Button className="roundedButton" type="submit" variant="contained">Sing up</Button>
+                <Button className="signUp roundedButton" type="submit" variant="contained">Sing up</Button>
                 :
                 <Button className="roundedButton" disabled>Sing up</Button>
             }
