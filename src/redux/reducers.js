@@ -1,8 +1,11 @@
-import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
+import { END_USERS_LOADING, GET_POSITIONS, GET_USER, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { defaultState } from "./default_state";
 
 export function users(state=defaultState.users, action){
     switch(action.type){
+        case GET_USER: {
+            return { ...state, users: [ action.payload.user, ...state.users ] };
+        }
         case GET_USERS: {
             return { ...state, usersData: action.payload.usersData, users: [ ...state.users, ...action.payload.usersData.users ] };
         }
