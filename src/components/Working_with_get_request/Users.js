@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import UserCard from "./User_card";
 
 function Users(){
-    //const users = useSelector((state) => state.users.users);
-    const users = [
+    const users = useSelector((state) => state.users.users);
+    /*const users = [
         {
             name: "Van",
             position: "Musor",
@@ -40,7 +40,7 @@ function Users(){
             photo: "none"
         }
     ];
-
+    */
     console.log(users)
 
     return(
