@@ -46,7 +46,7 @@ function Users(){
     return(
         <div className="users">
             {
-                users.map((user) => <UserCard user={user} key={user.id} />)
+                users.map((user) => <UserCard user={user} key={`${user.email}_${user.id}`} />)
             }
         </div>  
     );
