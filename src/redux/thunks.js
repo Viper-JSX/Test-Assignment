@@ -1,5 +1,6 @@
 import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
+import { getUser } from "./action_creators";
 
 export function getUsers(payload){
     return async function(dispatch){
@@ -47,6 +48,7 @@ export function signUp(payload){
         then((response) => response.data.user)
         .catch((err) => console.log("Cannot get the user"))
 
+        dispatch(getUser({ user }));
         //dispatch({ type: SIGN_UP, payload: { user } });
     }
 }

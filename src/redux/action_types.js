@@ -1,3 +1,4 @@
+export const GET_USER = "GET_USER";
 export const GET_USERS= "GET_USERS";
 export const START_USERS_LOADING = "START_USERS_LOADING";
 export const END_USERS_LOADING = "END_USERS_LOADING";
