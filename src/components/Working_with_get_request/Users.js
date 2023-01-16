@@ -41,7 +41,6 @@ function Users(){
         }
     ];
     */
-    console.log(users)
 
     return(
         <div className="users">

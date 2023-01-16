@@ -6,7 +6,7 @@ function WorkingWithGetRequest({ handleShowMoreUsers }){
     const [ usersAreLoading, usersCount, avaliableUsers ] = useSelector((state) => [ state.users.usersAreLoading, state.users.users.length, state.users.usersData?.total_users || 0 ]);
 
     return(
-        <div className="workingWithGetRequest">
+        <div id="workingWithGetRequest">
             <h2>Working with GET request</h2>
             <Users />
 

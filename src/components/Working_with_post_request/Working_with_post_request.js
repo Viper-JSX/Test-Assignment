@@ -6,7 +6,7 @@ function WorkingWithPostRequest({ handleSignUp }){
     const user = useSelector((state) => state.user?.user);
 
     return(
-        <div className="workingWithPostRequest">
+        <div id="workingWithPostRequest">
             <h2>
                 {
                     user ?
