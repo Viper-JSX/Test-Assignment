@@ -1,7 +1,9 @@
+import { Card } from "@mui/material";
+
 function UserCard({ user }){
 
     return(
-        <div className="userCard">
+        <Card className="userCard">
             <img className="userPhoto" src={user.photo} />
             <br />
             <span className="userName">{user.name}</span>
@@ -12,7 +14,7 @@ function UserCard({ user }){
                 <br />
                 <span className="userPhone">{user.phone}</span>
             </p>
-        </div>
+        </Card>
     );
 }
 

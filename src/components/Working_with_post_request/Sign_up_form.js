@@ -92,7 +92,7 @@ function SignUpForm({ handleSignUp }){
             />
             <span>{ formState.errors.phone?.message }</span>
 
-            <FormControl>
+            <FormControl color="secondary">
                 <FormLabel>Your position</FormLabel>
                 
 
@@ -104,7 +104,7 @@ function SignUpForm({ handleSignUp }){
                         <RadioGroup { ...field } >
                         {
                             positions.map((position) => 
-                                <FormControlLabel value={position.id} label={position.name} control={<Radio />} key={`position_${position.id}}`} />
+                                <FormControlLabel value={position.id}  label={position.name} control={<Radio color="secondary" />} key={`position_${position.id}}`} />
                             )
                         }
                         </RadioGroup>
