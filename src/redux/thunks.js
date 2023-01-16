@@ -43,13 +43,13 @@ export function signUp(payload){
             return;
         });
         
-        console.log(userId);
-        const user = await axiosClient.get(`/users/${userId}`).
-        then((response) => response.data.user)
-        .catch((err) => console.log("Cannot get the user"))
-
-        dispatch(getUser({ user }));
-        dispatch({ type: SIGN_UP, payload: { user } });
+        if(userId){ //User was created
+            const user = await axiosClient.get(`/users/${userId}`).
+            then((response) => dispatch(getUser({ user: response.data.user })))
+            .catch((err) => console.log("Cannot get the user"))
+    
+            dispatch({ type: SIGN_UP, payload: { user } });
+        }
     }
 }
 

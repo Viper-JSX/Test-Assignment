@@ -1,13 +1,13 @@
+import "../../../public/files/images/success-image.svg";
 import { Button, FormControl, FormControlLabel, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
-import { positions } from "@mui/system";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
 
 function SignUpForm({ handleSignUp }){
-    const positions =  useSelector((state) => state.users.positions);
-    const { formState, control, register, handleSubmit, setError, clearErrors } = useForm({
+    const [ positions, user ] =  useSelector((state) => [ state.users.positions, state.user?.user ]);
+    const { formState, control, register, handleSubmit, setError } = useForm({
         mode: "onChange",
         defaultValues: {
             position_id: 1,
@@ -44,6 +44,13 @@ function SignUpForm({ handleSignUp }){
                 setError("photo", { type: "text", message: "Image dimentions must be at least 70x70" });
             }
         }
+    }
+
+
+    if(user){
+        return(
+            <img src="../../../public/files/images/success-image.svg" />
+        )
     }
 
     return(
