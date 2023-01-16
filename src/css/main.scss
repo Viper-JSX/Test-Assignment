@@ -28,13 +28,23 @@ body{
 }
 
 button{
-    width: 6rem;
+    width: max-content;
+    min-width: 16rem;
     height: 2rem;
     border-radius: 5rem;
 }
 
-button:hover{
-    background-color: var(--buttonHoverBackground);
+button, .roundedButton{
+    &:hover{
+        background-color: var(--buttonHoverBackground) !important; /*To override MUI hover styles*/
+    }
+}
+
+button{
+    &:disabled{
+        color: var(--lightColor) !important; /*To override MUI styles*/
+        background-color: var(--disabledBackground);
+    }
 }
 
 .roundedButton{

@@ -22,8 +22,12 @@
     width: 380px;
 }
 
-.signUpForm .signUpFormTextField{
-    margin: 1rem
+.signUpForm > *, .signUpFormTextField{
+    margin-bottom: 3rem
+}
+
+.showMore{
+    width: 400px !important;
 }
 
 @media screen and (max-width: 420px){

@@ -16,7 +16,7 @@ function WorkingWithGetRequest({ handleShowMoreUsers }){
                     usersAreLoading ?
                     <CircularProgress color="secondary" />
                     :
-                    <Button onClick={handleShowMoreUsers} variant="contained" >Show more</Button> 
+                    <Button className="roundedButton showMore" onClick={handleShowMoreUsers} variant="contained" >Show more</Button> 
                 )
                 :
                 null

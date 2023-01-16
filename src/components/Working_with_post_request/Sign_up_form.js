@@ -106,7 +106,7 @@ function SignUpForm({ handleSignUp }){
                 )} 
             />
 
-            <FormControl color="secondary">
+            <FormControl className="signUpFormControll" color="secondary">
                 <FormLabel>Your position</FormLabel>
                 
 
