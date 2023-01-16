@@ -1,5 +1,5 @@
 import "../../../public/files/images/success-image.svg";
-import { Button, FormControl, FormControlLabel, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
+import { Button, FormControl, FormControlLabel, FormLabel, Input, OutlinedInput, Radio, RadioGroup, TextField } from "@mui/material";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -55,9 +55,15 @@ function SignUpForm({ handleSignUp }){
 
     return(
         <form className="signUpForm" method="POST" onSubmit={ handleSubmit(handleSignUp)}>
-            <Input 
+            
+            <TextField 
                 type="text" 
                 placeholder="Your name" 
+                variant="outlined"
+                label={formState.errors.name?.message}
+                InputLabelProps={{
+                    style: { color: 'red' },
+                }}
                 { ...register("name", 
                     { 
                         required: "Name is required", 
@@ -66,11 +72,14 @@ function SignUpForm({ handleSignUp }){
                     }
                 )} 
             />
-            <span>{ formState.errors.name?.message }</span>
 
-            <Input 
+            <TextField 
                 type="email" 
                 placeholder="Email"
+                label={formState.errors.email?.message}
+                InputLabelProps={{
+                    style: { color: 'red' },
+                }}
                 { ...register("email", 
                     {
                         required: "Email is required",
@@ -78,11 +87,14 @@ function SignUpForm({ handleSignUp }){
                     }
                 )} 
             />
-            <span>{ formState.errors.email?.message }</span>
 
-            <Input 
+            <TextField
                 type="tel" 
                 placeholder="Phone"
+                label={formState.errors.phone?.message}
+                InputLabelProps={{
+                    style: { color: 'red' },
+                }}
                 { ...register("phone", 
                     {
                         required: "Email is required",
@@ -90,7 +102,6 @@ function SignUpForm({ handleSignUp }){
                     }
                 )} 
             />
-            <span>{ formState.errors.phone?.message }</span>
 
             <FormControl color="secondary">
                 <FormLabel>Your position</FormLabel>

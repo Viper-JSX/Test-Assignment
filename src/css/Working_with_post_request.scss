@@ -1,4 +1,4 @@
-.workingWithPostRequest{
+.workingWithPostRequest h2{
     text-align: center;
 }
 
@@ -8,4 +8,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.signUpForm{
+    >*{
+        margin: 1rem;
+        text-align: left;
+    }
+}
+
+.signUpForm input{
+    width: 380px;
+}
+
+@media screen and (max-width: 420px){
+    .signUpForm input{
+        width: 328px;
+    }
 }
