@@ -19,7 +19,6 @@ function App(){
     useEffect(() =>{
         dispatch(getPositions());
         dispatch(getUsers({ url: `/users?page=1&count=${usersPerRequest}` }));
-        dispatch(showMessage({ messageTitle: "no", messageText: "Ya" }));
     }, [])
 
 

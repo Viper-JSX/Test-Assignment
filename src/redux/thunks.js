@@ -30,7 +30,6 @@ export function signUp(payload){
         formData.append("phone", payload.signUpData.phone);
         formData.append("position_id", payload.signUpData.position_id);
         formData.append("photo", payload.signUpData.photo[0]);
-        console.log(payload.signUpData.photo[0]);
 
         const token = await axiosClient.get("/token")
         .then((response) => response.data.token)
@@ -39,7 +38,9 @@ export function signUp(payload){
         const userId = await axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
         .then((response) => response.data.user_id)
         .catch((error) => {
-            dispatch({ type: SHOW_MESSAGE, payload: { messageTitle: "Cannot post the user", messageText: "Sign up not success"  } })
+            if(error.response.status === 409){
+                dispatch(showMessage({ messageTitle: "Cannot post the user", messageText: error.response.data.message }));
+            }
             return;
         });
         
@@ -56,7 +57,7 @@ export function signUp(payload){
 
 export function showMessage(payload){
     return function(dispatch){
-        dispatch({ type: SHOW_MESSAGE, payload })
+        dispatch({ type: SHOW_MESSAGE, payload });
         setTimeout(() => dispatch({ type: HIDE_MESSAGE }), 5000);
     }
 }
