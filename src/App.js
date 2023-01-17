@@ -3,7 +3,7 @@ import "../public/files/images/Logo.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPositions, getUsers, showmessage, showMessage, signUp } from "./redux/thunks";
+import { getPositions, getUsers,  signUp } from "./redux/thunks";
 
 import Header from "./components/Header/Header";
 import MainPage from "./components/Main_page/Main_page";
