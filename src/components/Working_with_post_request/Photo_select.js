@@ -1,4 +1,4 @@
-import { Input, Button } from "@mui/material";
+import { Input, Button, OutlinedInput } from "@mui/material";
 
 function PhotoSelect({ register, checkPhotoExtension, checkPhotoSize, checkPhotoDimentions, fileName  }){
     return(
@@ -16,7 +16,7 @@ function PhotoSelect({ register, checkPhotoExtension, checkPhotoSize, checkPhoto
                     }) 
                 }/>
             </Button>
-            <Input type="text" value={fileName} disabled />
+            <OutlinedInput type="text" value={fileName} disabled />
         </div>
     );
 }
