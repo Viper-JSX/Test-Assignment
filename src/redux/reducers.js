@@ -1,4 +1,4 @@
-import { END_USERS_LOADING, GET_POSITIONS, GET_USER, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
+import { CLEAR_USERS_DATA, END_USERS_LOADING, GET_POSITIONS, GET_USER, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { defaultState } from "./default_state";
 
 export function users(state=defaultState.users, action){
@@ -8,6 +8,9 @@ export function users(state=defaultState.users, action){
         }
         case GET_USERS: {
             return { ...state, usersData: action.payload.usersData, users: [ ...state.users, ...action.payload.usersData.users ] };
+        }
+        case CLEAR_USERS_DATA: {
+            return defaultState.users;
         }
         case GET_POSITIONS: {
             return {...state, positions: action.payload.positions };
