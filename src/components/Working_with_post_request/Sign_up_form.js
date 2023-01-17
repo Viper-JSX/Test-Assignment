@@ -128,7 +128,7 @@ function SignUpForm({ handleSignUp }){
 
             <Button className="photoSelect" variant="outlined" color="dark" component="label">
                 Upload
-                <input type="file" { 
+                <input type="file" accept=".jpg, .jpeg" hidden { 
                     ...register("photo", { 
                         required: "Upload a photo",
                         validate: {
@@ -137,7 +137,7 @@ function SignUpForm({ handleSignUp }){
                             photoDimentionsAreSuitable: checkPhotoDimentions
                         }
                     }) 
-                    } hidden accept="image/jpg, image/jpeg" />
+                    }/>
             </Button>
             <span>
                 {   
