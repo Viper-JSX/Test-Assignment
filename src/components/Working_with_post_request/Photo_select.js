@@ -1,6 +1,6 @@
 import { Input, Button, OutlinedInput } from "@mui/material";
 
-function PhotoSelect({ register, checkPhotoExtension, checkPhotoSize, checkPhotoDimentions, fileName  }){
+function PhotoSelect({ fileName, error, register, checkPhotoExtension, checkPhotoSize, checkPhotoDimentions  }){
     return(
         <div className="">
             <Button className="photoSelect" variant="outlined" color="dark" component="label">
@@ -17,6 +17,8 @@ function PhotoSelect({ register, checkPhotoExtension, checkPhotoSize, checkPhoto
                 }/>
             </Button>
             <OutlinedInput type="text" value={fileName} disabled />
+            <br />
+            <span>{ error }</span>
         </div>
     );
 }

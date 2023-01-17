@@ -22,7 +22,7 @@ function SignUpForm({ handleSignUp }){
 
     function checkPhotoSize(images){
         if(images[0].size > 5000000){ //File greater that 5MB
-            setError("photo", { type: "text", message: "Image size must be less that 5MB" });
+            return "Image size must be less that 5MB";
         }
     }
 
@@ -43,9 +43,8 @@ function SignUpForm({ handleSignUp }){
 
     function checkPhotoExtension(images){
         const photoType = images[0].type;
-        console.log(photoType);
         if(images[0].type !== "image/jpg" || images[0].type !== "image/jpeg"){
-            setError("photo", { type: "text", message: "Allowed extensions: jpg and jpeg" });
+            return "Allowed extensions: jpg and jpeg";
         }
     }
 
@@ -135,7 +134,7 @@ function SignUpForm({ handleSignUp }){
 
             <PhotoSelect 
                 fileName={ ( getValues().photo && getValues().photo?.length > 0 ) ? getValues().photo[0].name : "Upload image" }
-                error={formState.errors.message}
+                error={formState.errors.photo?.message}
                 register={register} 
                 checkPhotoExtension={checkPhotoExtension}  
                 checkPhotoSize={checkPhotoSize}
