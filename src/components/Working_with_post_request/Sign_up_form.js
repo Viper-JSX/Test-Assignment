@@ -54,9 +54,13 @@ function SignUpForm({ handleSignUp }){
         }
     }
 
+
+
+
+    //Rendering
     if(user){
         return(
-            <img src="../../../public/files/images/success-image.svg" />
+            <img className="signUpSuccessImage" src="../../../public/files/images/success-image.svg" />
         )
     }
 
