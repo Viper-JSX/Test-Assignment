@@ -1,4 +1,4 @@
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import Users from "./Users";
 
@@ -7,7 +7,7 @@ function WorkingWithGetRequest({ handleShowMoreUsers }){
 
     return(
         <div id="workingWithGetRequest">
-            <h2>Working with GET request</h2>
+            <Typography variant="h4">Working with GET request</Typography>
             <Users />
 
             {

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import SignUpForm from "./Sign_up_form";
 
@@ -7,14 +7,14 @@ function WorkingWithPostRequest({ handleSignUp }){
 
     return(
         <div id="workingWithPostRequest">
-            <h2>
+            <Typography variant="h4">
                 {
                     user ?
                     "User successfully registered"
                     :
                     "Working with post request" 
                 }
-            </h2>
+            </Typography>
             
                 <SignUpForm handleSignUp={handleSignUp} />
         </div>  
