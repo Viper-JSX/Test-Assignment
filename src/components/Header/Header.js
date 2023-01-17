@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 
 function Header(){
-    const user = useSelector((state) => state.user?.user);
+    const user = useSelector((state) => state.user.user);
     console.log(user);
 
     return(

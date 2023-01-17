@@ -9,13 +9,20 @@ import Header from "./components/Header/Header";
 import MainPage from "./components/Main_page/Main_page";
 import { usersPerRequest } from "./api/requests_config";
 import MessageWindow from "./components/Message_window/Message_window";
+import WebFont from "webfontloader";
 
 
 function App(){
     const dispatch = useDispatch();
     const usersData = useSelector((state) => state.users.usersData);
     useSelector((state) => console.log(state))
+    
     useEffect(() =>{
+        WebFont.load({
+            google:{
+                families: ["Nunito"]
+            }
+        });
         dispatch(getPositions());
         dispatch(getUsers({ url: `/users?page=1&count=${usersPerRequest}` }));
     }, [])
