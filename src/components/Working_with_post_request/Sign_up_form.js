@@ -101,7 +101,7 @@ function SignUpForm({ handleSignUp }){
                 InputProps={{ className: "signUpFormTextField" }}
                 { ...register("phone", 
                     {
-                        required: "Email is required",
+                        required: "Phone is required",
                         pattern: { value: phoneValidationExpression, message: "Wrong phone format" }
                     }
                 )} 
