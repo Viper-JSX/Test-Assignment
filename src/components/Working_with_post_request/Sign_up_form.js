@@ -19,12 +19,6 @@ function SignUpForm({ handleSignUp }){
 
     useEffect(() => setError("photo", { type: "text", message: "Upload a photo" }) ,[]); //To disable the sing up button at initial render (No image selected)
 
-    function checkPhotoSelected(images){
-        if(images.length === 0){
-            return "Select the image"
-        }
-    }
-
     function checkPhotoSize(images){
         if(images[0].size > 5000000){ //File greater that 5MB
             setError("photo", { type: "text", message: "Image size must be less that 5MB" });
@@ -144,7 +138,6 @@ function SignUpForm({ handleSignUp }){
                     ...register("photo", { 
                         required: "Upload a photo",
                         validate: {
-                            photoIsSelected: checkPhotoSelected,
                             sizeIsSuitable: checkPhotoSize,
                             photoDimentionsAreSuitable: checkPhotoDimentions,
                             photoExtensionIsSuitable: checkPhotoExtension
