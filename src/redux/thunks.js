@@ -1,6 +1,6 @@
 import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
-import { clearUsersData } from "./action_creators";
+import { clearUsersData, endSignUpProcessing, startSignUpProcessing } from "./action_creators";
 import { usersPerRequest } from "../api/requests_config";
 
 export function getUsers(payload){
@@ -26,6 +26,8 @@ export function getPositions(payload){
 
 export function signUp(payload){
     return async function(dispatch){
+        dispatch(startSignUpProcessing());
+
         const formData = new FormData();
         formData.append("name", payload.signUpData.name);
         formData.append("email", payload.signUpData.email);
@@ -63,6 +65,8 @@ export function signUp(payload){
             dispatch(clearUsersData()); //Clear all users 
             dispatch(getUsers({url: `/users?page=1&count=${usersPerRequest}` })); //Refetch data starting at page 1
         }
+
+        dispatch(endSignUpProcessing());
     }
 }
 
