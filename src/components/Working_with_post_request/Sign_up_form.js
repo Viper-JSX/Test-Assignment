@@ -17,7 +17,7 @@ function SignUpForm({ handleSignUp }){
         }
     });
 
-    useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button at initial render (No image selected)
+    useEffect(() => setError("photo", { type: "text", message: "Upload a photo" }) ,[]); //To disable the sing up button at initial render (No image selected)
 
     function checkPhotoSelected(images){
         if(images.length === 0){
@@ -126,8 +126,8 @@ function SignUpForm({ handleSignUp }){
             </FormControl>
             <span>{ formState.errors.position_id?.message }</span>
 
-            <Button variant="contained" component="label">
-                Upload File
+            <Button className="photoSelect" variant="outlined" color="dark" component="label">
+                Upload
                 <input type="file" { 
                     ...register("photo", { 
                         required: "Upload a photo",

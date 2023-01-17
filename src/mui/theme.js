@@ -21,6 +21,11 @@ export const theme = createTheme({
         secondary: {
             main: "#00BDD3",
         },
+        
+        dark:{
+            main: "#000000",
+        },
+
         action: {
             disabledBackground: "#B4B4B4"
         }
