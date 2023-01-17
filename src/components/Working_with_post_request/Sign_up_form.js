@@ -133,7 +133,7 @@ function SignUpForm({ handleSignUp }){
             <span>{ formState.errors.position_id?.message }</span>
 
             <PhotoSelect 
-                fileName={ ( getValues().photo && getValues().photo?.length > 0 ) ? getValues().photo[0].name : "Upload image" }
+                fileName={ ( getValues().photo && getValues().photo?.length > 0 ) ? getValues().photo[0].name : "Upload a photo" }
                 error={formState.errors.photo?.message}
                 register={register} 
                 checkPhotoExtension={checkPhotoExtension}  

@@ -39,7 +39,15 @@
     align-self: flex-start;
 }
 
+.photoSelectContainer{
+    text-align: center;
+}
+
 .photoSelect{
     width: 5rem;
     height: 3.5rem;
+}
+
+.photoSelectError{
+    color: red;
 }
