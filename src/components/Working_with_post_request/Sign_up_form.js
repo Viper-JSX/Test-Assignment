@@ -43,7 +43,8 @@ function SignUpForm({ handleSignUp }){
 
     function checkPhotoExtension(images){
         const photoType = images[0].type;
-        if(images[0].type !== "image/jpg" || images[0].type !== "image/jpeg"){
+        console.log(photoType);
+        if(photoType !== "image/jpg" && photoType !== "image/jpeg"){
             return "Allowed extensions: jpg and jpeg";
         }
     }
