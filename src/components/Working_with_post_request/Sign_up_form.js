@@ -17,9 +17,7 @@ function SignUpForm({ handleSignUp }){
         }
     });
 
-    console.log(singUpProcessing)
     useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button at initial render (No image selected)
-    console.log(getValues());
 
     function checkPhotoSelected(images){
         if(images.length === 0){

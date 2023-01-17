@@ -16,7 +16,6 @@ import { TextField } from "@mui/material";
 function App(){
     const dispatch = useDispatch();
     const usersData = useSelector((state) => state.users.usersData);
-    useSelector((state) => console.log(state))
     
     useEffect(() =>{
         WebFont.load({

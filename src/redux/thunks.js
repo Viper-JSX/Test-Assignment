@@ -8,7 +8,15 @@ export function getUsers(payload){
         dispatch({ type: START_USERS_LOADING });
         const usersData = await axiosClient.get(payload.url)
         .then((response) => response.data)
-        .catch((error) => console.log(error));
+        .catch((error) => {
+            showMessage("Network error", "You have probably been disconnected");
+            return;
+        });
+
+        if(!usersData){
+            dispatch(showMessage({ messageTitle: "Network error", messageText: "You have probably been disconnected" }));
+            return;
+        }
 
         dispatch({ type: GET_USERS, payload: { usersData } });
         dispatch({ type: END_USERS_LOADING });
@@ -37,30 +45,44 @@ export function signUp(payload){
 
         const token = await axiosClient.get("/token")
         .then((response) => response.data.token)
-        .catch((err) => console.log(err));
+        .catch((err) => console.log("Cannot get the token"));
 
         const userId = await axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
         .then((response) => response.data.user_id)
         .catch((error) => {
-            switch(error.response.status){
-                case 409: {
-                    dispatch(showMessage({ messageTitle: "Cannot post the user", messageText: error.response.data.message }));
+
+            if(error.response){
+                switch(error.response.status){
+                    case 409: {
+                        dispatch(showMessage({ messageTitle: "Cannot post the user", messageText: error.response.data.message }));
+                        break
+                    }
+                    case 422: {
+                        dispatch(showMessage({ messageTitle: "Validation error", messageText: error.response.data.messae }));
+                        break
+                    }
+                    default: {
+                        dispatch(showMessage({ messageTitle: "Error", messageText: "Unknown error has occured" }));
+                        break
+                    }
                 }
-                case 422: {
-                    dispatch(showMessage({ messageTitle: "Validation error", messageText: error.response.data.messae }));
-                }
-                default: {
-                    dispatch(showMessage({ messageTitle: "Error", messageText: "Unknown error has occured" }));
-                }
+                return;
             }
+            
+            dispatch(showMessage({ messageTitle: "Network error", messageText: "You have probably been disconnected" }));
             return;
         });
         
         if(userId){ //User was created
             const user = await axiosClient.get(`/users/${userId}`).
             then((response) => response.data.user)
-            .catch((err) => console.log("Cannot get the user"))
+            .catch((err) => console.log("Cannot get the user"));
     
+            if(!user){
+                dispatch(showMessage({ messageTitle: "Network error", messageText: "You have probably been disconnected" }));
+                return;
+            }
+
             dispatch({ type: SIGN_UP, payload: { user } }); //Authoruze the user
             dispatch(clearUsersData()); //Clear all users 
             dispatch(getUsers({url: `/users?page=1&count=${usersPerRequest}` })); //Refetch data starting at page 1
