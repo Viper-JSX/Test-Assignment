@@ -40,8 +40,16 @@ export function signUp(payload){
         const userId = await axiosClient.post("/users",  formData, { headers:{ 'Token': token } } )
         .then((response) => response.data.user_id)
         .catch((error) => {
-            if(error.response.status === 409){
-                dispatch(showMessage({ messageTitle: "Cannot post the user", messageText: error.response.data.message }));
+            switch(error.response.status){
+                case 409: {
+                    dispatch(showMessage({ messageTitle: "Cannot post the user", messageText: error.response.data.message }));
+                }
+                case 422: {
+                    dispatch(showMessage({ messageTitle: "Validation error", messageText: error.response.data.messae }));
+                }
+                default: {
+                    dispatch(showMessage({ messageTitle: "Error", messageText: "Unknown error has occured" }));
+                }
             }
             return;
         });
