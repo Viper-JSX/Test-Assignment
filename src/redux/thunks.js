@@ -1,6 +1,6 @@
 import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
-import { clearUsersData, getUser } from "./action_creators";
+import { clearUsersData } from "./action_creators";
 import { usersPerRequest } from "../api/requests_config";
 
 export function getUsers(payload){
@@ -51,7 +51,7 @@ export function signUp(payload){
             then((response) => response.data.user)
             .catch((err) => console.log("Cannot get the user"))
     
-            dispatch({ type: SIGN_UP, payload: { user } });
+            dispatch({ type: SIGN_UP, payload: { user } }); //Authoruze the user
             dispatch(clearUsersData()); //Clear all users 
             dispatch(getUsers({url: `/users?page=1&count=${usersPerRequest}` })); //Refetch data starting at page 1
         }
