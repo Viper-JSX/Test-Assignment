@@ -12,9 +12,6 @@ function SignUpForm({ handleSignUp }){
         mode: "onChange",
         defaultValues: {
             position_id: 1,
-            email: "ivan@gmail.com",
-            name: "Ivann",
-            phone: "+380973242455"
         }
     });
 
