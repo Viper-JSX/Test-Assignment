@@ -1,13 +1,15 @@
 import { END_USERS_LOADING, GET_POSITIONS, GET_USERS, HIDE_MESSAGE, SHOW_MESSAGE, SIGN_UP, START_USERS_LOADING } from "./action_types";
 import { axiosClient } from "../api/axios/axios_client";
-import { getUser } from "./action_creators";
+import { clearUsersData, getUser } from "./action_creators";
+import { usersPerRequest } from "../api/requests_config";
 
 export function getUsers(payload){
     return async function(dispatch){
         dispatch({ type: START_USERS_LOADING });
         const usersData = await axiosClient.get(payload.url)
-        .then((response) => response.data);
-    
+        .then((response) => response.data)
+        .catch((error) => console.log(error));
+
         dispatch({ type: GET_USERS, payload: { usersData } });
         dispatch({ type: END_USERS_LOADING });
     }
@@ -46,10 +48,12 @@ export function signUp(payload){
         
         if(userId){ //User was created
             const user = await axiosClient.get(`/users/${userId}`).
-            then((response) => dispatch(getUser({ user: response.data.user })))
+            then((response) => response.data.user)
             .catch((err) => console.log("Cannot get the user"))
     
             dispatch({ type: SIGN_UP, payload: { user } });
+            dispatch(clearUsersData()); //Clear all users 
+            dispatch(getUsers({url: `/users?page=1&count=${usersPerRequest}` })); //Refetch data starting at page 1
         }
     }
 }

@@ -10,7 +10,7 @@ export function users(state=defaultState.users, action){
             return { ...state, usersData: action.payload.usersData, users: [ ...state.users, ...action.payload.usersData.users ] };
         }
         case CLEAR_USERS_DATA: {
-            return defaultState.users;
+            return { ...defaultState.users, positions: state.positions  };
         }
         case GET_POSITIONS: {
             return {...state, positions: action.payload.positions };
