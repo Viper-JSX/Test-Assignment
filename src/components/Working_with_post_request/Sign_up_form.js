@@ -46,6 +46,14 @@ function SignUpForm({ handleSignUp }){
         }
     }
 
+    function checkPhotoExtension(images){
+        const photoType = images[0].type;
+        console.log(photoType);
+        if(images[0].type !== "image/jpg" || images[0].type !== "image/jpeg"){
+            setError("photo", { type: "text", message: "Allowed extensions: jpg and jpeg" });
+        }
+    }
+
     if(user){
         return(
             <img src="../../../public/files/images/success-image.svg" />
@@ -134,7 +142,8 @@ function SignUpForm({ handleSignUp }){
                         validate: {
                             photoIsSelected: checkPhotoSelected,
                             sizeIsSuitable: checkPhotoSize,
-                            photoDimentionsAreSuitable: checkPhotoDimentions
+                            photoDimentionsAreSuitable: checkPhotoDimentions,
+                            photoExtensionIsSuitable: checkPhotoExtension
                         }
                     }) 
                     }/>
