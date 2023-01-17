@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
+import PhotoSelect from "./Photo_select";
 
 function SignUpForm({ handleSignUp }){
     const [ positions, user, singUpProcessing ] =  useSelector((state) => [ state.users.positions, state.user.user,  state.user.signUpProcessing]);
@@ -132,27 +133,14 @@ function SignUpForm({ handleSignUp }){
             </FormControl>
             <span>{ formState.errors.position_id?.message }</span>
 
-            <Button className="photoSelect" variant="outlined" color="dark" component="label">
-                Upload
-                <input type="file" accept=".jpg, .jpeg" hidden { 
-                    ...register("photo", { 
-                        required: "Upload a photo",
-                        validate: {
-                            sizeIsSuitable: checkPhotoSize,
-                            photoDimentionsAreSuitable: checkPhotoDimentions,
-                            photoExtensionIsSuitable: checkPhotoExtension
-                        }
-                    }) 
-                    }/>
-            </Button>
-            <span>
-                {   
-                    ( getValues().photo && getValues().photo?.length > 0 ) ? //If photo is selected
-                    getValues().photo[0].name
-                    :
-                    formState.errors.photo?.message 
-                }
-            </span>
+            <PhotoSelect 
+                fileName={ ( getValues().photo && getValues().photo?.length > 0 ) ? getValues().photo[0].name : "Upload image" }
+                error={formState.errors.message}
+                register={register} 
+                checkPhotoExtension={checkPhotoExtension}  
+                checkPhotoSize={checkPhotoSize}
+                checkPhotoDimentions={checkPhotoDimentions}
+            />
 
             {
                 singUpProcessing ? 
