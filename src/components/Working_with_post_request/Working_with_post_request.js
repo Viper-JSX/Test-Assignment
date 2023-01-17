@@ -7,7 +7,7 @@ function WorkingWithPostRequest({ handleSignUp }){
 
     return(
         <div id="workingWithPostRequest">
-            <Typography variant="h4">
+            <Typography variant="h1">
                 {
                     user ?
                     "User successfully registered"
@@ -16,7 +16,7 @@ function WorkingWithPostRequest({ handleSignUp }){
                 }
             </Typography>
             
-                <SignUpForm handleSignUp={handleSignUp} />
+            <SignUpForm handleSignUp={handleSignUp} />
         </div>  
     );
 }

@@ -7,7 +7,7 @@ function WorkingWithGetRequest({ handleShowMoreUsers }){
 
     return(
         <div id="workingWithGetRequest">
-            <Typography variant="h4">Working with GET request</Typography>
+            <Typography variant="h1">Working with GET request</Typography>
             <Users />
 
             {

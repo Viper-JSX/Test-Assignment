@@ -1,10 +1,15 @@
 import { createTheme } from "@mui/material";
+import { lineHeight } from "@mui/system";
 
 
 export const theme = createTheme({
     typography: {
         button: {
           textTransform: 'none'
+        },
+        fontFamily: "Nunito",
+        h1: {
+            fontSize: 40,
         }
     },
     

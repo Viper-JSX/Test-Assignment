@@ -1,12 +1,15 @@
 #workingWithPostRequest{
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#workingWithPostRequest h2{
-    margin-top: 7rem;
-    text-align: center;
+#workingWithPostRequest{
+    h1{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
 }
 
 /*---SignUpForm---*/
