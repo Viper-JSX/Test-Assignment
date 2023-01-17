@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import SignUpForm from "./Sign_up_form";
 
 function WorkingWithPostRequest({ handleSignUp }){
-    const user = useSelector((state) => state.user?.user);
+    const user = useSelector((state) => state.user.user);
 
     return(
         <div id="workingWithPostRequest">

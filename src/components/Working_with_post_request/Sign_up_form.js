@@ -1,12 +1,12 @@
 import "../../../public/files/images/success-image.svg";
-import { Button, FormControl, FormControlLabel, FormLabel, Input, OutlinedInput, Radio, RadioGroup, TextField } from "@mui/material";
+import { Button, CircularProgress, FormControl, FormControlLabel, FormLabel, Input, OutlinedInput, Radio, RadioGroup, TextField } from "@mui/material";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { emailValidationExpression, phoneValidationExpression } from "../../various_things/validation_expressions";
 
 function SignUpForm({ handleSignUp }){
-    const [ positions, user ] =  useSelector((state) => [ state.users.positions, state.user?.user ]);
+    const [ positions, user, singUpProcessing ] =  useSelector((state) => [ state.users.positions, state.user.user,  state.user.signUpProcessing]);
     const { formState, control, register, handleSubmit, getValues, setError } = useForm({
         mode: "onChange",
         defaultValues: {
@@ -17,6 +17,7 @@ function SignUpForm({ handleSignUp }){
         }
     });
 
+    console.log(singUpProcessing)
     useEffect(() => setError("photo", { type: "text", message: "Select the image" }) ,[]); //To disable the sing up button at initial render (No image selected)
     console.log(getValues());
 
@@ -46,7 +47,6 @@ function SignUpForm({ handleSignUp }){
             }
         }
     }
-
 
     if(user){
         return(
@@ -151,10 +151,17 @@ function SignUpForm({ handleSignUp }){
             </span>
 
             {
-                ( Object.keys(formState.errors).length === 0 ) ? 
-                <Button className="signUp roundedButton" type="submit" variant="contained">Sing up</Button>
+                singUpProcessing ? 
+                (
+                    <CircularProgress color="secondary" />
+                )
                 :
-                <Button className="roundedButton" disabled>Sing up</Button>
+                (
+                    ( Object.keys(formState.errors).length === 0 ) ? 
+                    <Button className="signUp roundedButton" type="submit" variant="contained">Sing up</Button>
+                    :
+                    <Button className="roundedButton" disabled>Sing up</Button>
+                )
             }
 
         </form>

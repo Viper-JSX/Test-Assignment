@@ -1,5 +1,8 @@
 export const defaultState = {
-    user: null,
+    user: {
+        user: null,
+        signUpProcessing: false
+    },
 
     users: {
         users: [],
