@@ -100,7 +100,7 @@ function SignUpForm({ handleSignUp }){
                 InputLabelProps={{
                     style: { color: 'red' },
                 }}
-                InputProps={{ className: "signUpFormTextField" }}
+                InputProps={{ className: "signUpFormTextField phoneInput" }}
                 { ...register("phone", 
                     {
                         required: "Phone is required",

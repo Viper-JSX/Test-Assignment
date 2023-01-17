@@ -35,6 +35,19 @@
     margin-bottom: 3rem
 }
 
+.phoneInput{
+    position: relative;
+
+    &::after{
+        content: "+38 (XXX) XXX - XX - XX";
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        transform: translateY(120%);
+        color: var(--disabledBackground);
+    }
+}
+
 .signUpFormControll{
     align-self: flex-start;
 }
